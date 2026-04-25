@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggy: Cooking Simulator Rules</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .rule-card {
+            transition: all 0.3s ease;
+        }
+        .rule-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex items-center justify-center p-4 sm:p-8">
+
+    <main class="max-w-3xl w-full bg-stone-900 rounded-3xl shadow-2xl overflow-hidden border border-stone-800">
+        
+        <!-- Header -->
+        <div class="px-8 py-8 text-center border-b border-stone-800">
+            <h1 class="text-3xl font-bold text-white tracking-tight">Piggy Map Rules</h1>
+        </div>
+
+        <!-- Rules List -->
+        <div class="p-6 sm:p-10 space-y-5">
+            
+            <div class="rule-card bg-stone-800/60 rounded-2xl p-6 border border-stone-700/50 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                        <i data-lucide="hammer" class="w-6 h-6 text-orange-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                        <span class="text-orange-400 font-bold bg-orange-500/10 px-2 py-0.5 rounded text-sm">Rule 1</span> 
+                        No Asking for Build
+                    </h2>
+                    <p class="text-stone-400 leading-relaxed text-sm sm:text-base">
+                        This is a custom Piggy roleplay/minigame map. Do not ask the host to give you build mode permissions or access to modify the map. The kitchen layout is already set!
+                    </p>
+                </div>
+            </div>
+
+            <div class="rule-card bg-stone-800/60 rounded-2xl p-6 border border-stone-700/50 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
+                        <i data-lucide="timer" class="w-6 h-6 text-amber-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                        <span class="text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded text-sm">Rule 2</span> 
+                        No Begging to Start
+                    </h2>
+                    <p class="text-stone-400 leading-relaxed text-sm sm:text-base">
+                        Please be patient while waiting in the lobby. Do not spam the chat asking the host to type "/start". The cooking will begin as soon as everyone is in the server and ready.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rule-card bg-stone-800/60 rounded-2xl p-6 border border-stone-700/50 flex flex-col sm:flex-row gap-5 items-start">
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center border border-red-500/20">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                        <span class="text-red-400 font-bold bg-red-500/10 px-2 py-0.5 rounded text-sm">Rule 3</span> 
+                        Don't Be Inappropriate
+                    </h2>
+                    <p class="text-stone-400 leading-relaxed text-sm sm:text-base">
+                        Keep the chat friendly and respect the Roblox Terms of Service. Any toxic behavior, bullying, trolling, or inappropriate roleplay will get you kicked from the server.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="px-6 sm:px-10 pb-6 flex justify-center">
+            <div class="flex flex-col items-center gap-3">
+                <div class="bg-white p-3 rounded-2xl shadow-sm">
+                    <!-- This image is dynamically updated by the script below -->
+                    <img id="qrcode" src="" alt="Working QR Code" class="w-32 h-32 object-contain">
+                </div>
+                <span class="text-xs uppercase tracking-wider font-semibold text-stone-500">Scan to Share</span>
+            </div>
+        </div>
+
+        <!-- Tutorial Section -->
+        <div class="px-6 sm:px-10 pb-8">
+            <h2 class="text-2xl font-bold text-white mb-4">How to Build This Map in Piggy</h2>
+            <div class="bg-stone-800/40 rounded-2xl p-6 border border-stone-700/50">
+                <ul class="list-disc list-inside space-y-2 text-stone-300 text-sm sm:text-base">
+                    <li>Open Piggy Build Mode.</li>
+                    <li>Create a large room using Basic blocks.</li>
+                    <li>Place counters around the edges.</li>
+                    <li>Group Cyan Player Spawns together.</li>
+                    <li>Place the Red Piggy Spawn far away.</li>
+                    <li>Add stoves, fridges, and shelves from Decorations.</li>
+                    <li>Place items (keys) and link them to doors.</li>
+                    <li>Type <code>/save [slot number]</code> to save.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+
+    <script>
+        // Initialize the icons from Lucide
+        lucide.createIcons();
+
+        // Generate a real working QR code for the current URL
+        window.onload = function() {
+            // Gets the URL of wherever this website is hosted/opened
+            const currentUrl = window.location.href;
+            const qrImage = document.getElementById('qrcode');
+            
+            // Uses a free API to turn that URL into a scannable image
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(currentUrl)}&bgcolor=ffffff&color=000000`;
+        };
+    </script>
+</body>
+</html>
